@@ -11,7 +11,7 @@ class PersonsViewController: UIViewController {
     
 
     @IBOutlet weak var personsCollectionView: UICollectionView!
-
+    private let refreshControl = UIRefreshControl()
     private var persons = [PersonElement]()
     
     override func viewDidLoad() {
@@ -19,6 +19,7 @@ class PersonsViewController: UIViewController {
         personsCollectionView.delegate = self
         personsCollectionView.dataSource = self
         networkService()
+        refresh()
         title = "The Breaking Bad Сharacters"
     }
     //    MARK: - Private func
@@ -34,8 +35,17 @@ class PersonsViewController: UIViewController {
         }
     }
     
+    private func refresh() {
+        personsCollectionView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    
+    @objc func refreshData(sender: UIRefreshControl) {
+        sender.endRefreshing()
+        networkService()
+        personsCollectionView.reloadData()
+    }
 }
-
 extension PersonsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         persons.count
