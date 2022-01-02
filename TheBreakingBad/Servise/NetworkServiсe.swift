@@ -16,14 +16,14 @@ class NetworkService {
     static let shared = NetworkService()
     private init () {}
     
-    func request() async throws -> [Person] {
-        guard let url = URL(string: "https://thronesapi.com/api/v2/Characters") else {
+    func request() async throws -> [PersonElement] {
+        guard let url = URL(string: "https://www.breakingbadapi.com/api/characters/") else {
             throw NetworkError.invalidURL
         }
         
         let (data, _) = try await URLSession.shared.data(from: url)
         let decoder = JSONDecoder()
-        guard let person = try? decoder.decode([Person].self, from: data) else {
+        guard let person = try? decoder.decode([PersonElement].self, from: data) else {
             throw NetworkError.noData
         }
         

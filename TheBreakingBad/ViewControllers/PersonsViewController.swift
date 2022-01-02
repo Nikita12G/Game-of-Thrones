@@ -12,13 +12,14 @@ class PersonsViewController: UIViewController {
 
     @IBOutlet weak var personsCollectionView: UICollectionView!
     
-    private var persons = [Person]()
+    private var persons = [PersonElement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         personsCollectionView.delegate = self
         personsCollectionView.dataSource = self
         networkService()
+        
         
     }
     //    MARK: - Private func
@@ -43,9 +44,8 @@ extension PersonsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonsCollectionViewCell.reuseId, for: indexPath) as! PersonsCollectionViewCell
-        cell.personImage.fetchImage(from: persons[indexPath.row].imageURL)
-        cell.personName.text = persons[indexPath.row].fullName
-        cell.backgroundColor = .darkGray
+        cell.personImage.fetchImage(from: persons[indexPath.row].img)
+        cell.personName.text = persons[indexPath.row].name
         return cell
     }
     
@@ -54,3 +54,13 @@ extension PersonsViewController: UICollectionViewDataSource {
 extension PersonsViewController: UICollectionViewDelegate {
     
 }
+
+extension PersonsViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+       {
+          return CGSize(width: 100.0, height: 100.0)
+       }
+}
+
+

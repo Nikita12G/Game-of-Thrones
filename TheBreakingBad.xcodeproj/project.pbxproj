@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A14B3AFF277C280900065794 /* IceAndFire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceAndFire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14B3AFF277C280900065794 /* TheBreakingBad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBreakingBad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B3B02277C280900065794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A14B3B04277C280900065794 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A14B3B06277C280900065794 /* PersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		A14B3AF6277C280900065794 = {
 			isa = PBXGroup;
 			children = (
-				A14B3B01277C280900065794 /* IceAndFire */,
+				A14B3B01277C280900065794 /* TheBreakingBad */,
 				A14B3B00277C280900065794 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,12 +58,12 @@
 		A14B3B00277C280900065794 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A14B3AFF277C280900065794 /* IceAndFire.app */,
+				A14B3AFF277C280900065794 /* TheBreakingBad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A14B3B01277C280900065794 /* IceAndFire */ = {
+		A14B3B01277C280900065794 /* TheBreakingBad */ = {
 			isa = PBXGroup;
 			children = (
 				A14B3B19277C28ED00065794 /* Resourse */,
@@ -74,7 +74,7 @@
 				A14B3B18277C28D700065794 /* Models */,
 				A14B3B1C277C292100065794 /* App */,
 			);
-			path = IceAndFire;
+			path = TheBreakingBad;
 			sourceTree = "<group>";
 		};
 		A14B3B18277C28D700065794 /* Models */ = {
@@ -141,9 +141,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A14B3AFE277C280900065794 /* IceAndFire */ = {
+		A14B3AFE277C280900065794 /* TheBreakingBad */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A14B3B13277C280A00065794 /* Build configuration list for PBXNativeTarget "IceAndFire" */;
+			buildConfigurationList = A14B3B13277C280A00065794 /* Build configuration list for PBXNativeTarget "TheBreakingBad" */;
 			buildPhases = (
 				A14B3AFB277C280900065794 /* Sources */,
 				A14B3AFC277C280900065794 /* Frameworks */,
@@ -153,9 +153,9 @@
 			);
 			dependencies = (
 			);
-			name = IceAndFire;
+			name = TheBreakingBad;
 			productName = IceAndFire;
-			productReference = A14B3AFF277C280900065794 /* IceAndFire.app */;
+			productReference = A14B3AFF277C280900065794 /* TheBreakingBad.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +173,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A14B3AFA277C280900065794 /* Build configuration list for PBXProject "IceAndFire" */;
+			buildConfigurationList = A14B3AFA277C280900065794 /* Build configuration list for PBXProject "TheBreakingBad" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -186,7 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A14B3AFE277C280900065794 /* IceAndFire */,
+				A14B3AFE277C280900065794 /* TheBreakingBad */,
 			);
 		};
 /* End PBXProject section */
@@ -369,6 +369,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IceAndFire/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TheBreakingBad;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -384,7 +385,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -396,9 +397,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HDWNKQ472C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IceAndFire/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TheBreakingBad;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -409,19 +411,19 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nikita12G.IceAndFire;
+				PRODUCT_BUNDLE_IDENTIFIER = Nikita12G.TheBreakingBad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A14B3AFA277C280900065794 /* Build configuration list for PBXProject "IceAndFire" */ = {
+		A14B3AFA277C280900065794 /* Build configuration list for PBXProject "TheBreakingBad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A14B3B11277C280A00065794 /* Debug */,
@@ -430,7 +432,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A14B3B13277C280A00065794 /* Build configuration list for PBXNativeTarget "IceAndFire" */ = {
+		A14B3B13277C280A00065794 /* Build configuration list for PBXNativeTarget "TheBreakingBad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A14B3B14277C280A00065794 /* Debug */,
