@@ -11,7 +11,7 @@ class PersonsViewController: UIViewController {
     
 
     @IBOutlet weak var personsCollectionView: UICollectionView!
-    
+
     private var persons = [PersonElement]()
     
     override func viewDidLoad() {
@@ -19,8 +19,7 @@ class PersonsViewController: UIViewController {
         personsCollectionView.delegate = self
         personsCollectionView.dataSource = self
         networkService()
-        
-        
+        title = "The Breaking Bad Сharacters"
     }
     //    MARK: - Private func
     

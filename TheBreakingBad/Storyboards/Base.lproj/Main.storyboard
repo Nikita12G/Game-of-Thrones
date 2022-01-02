@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MVX-qH-GhJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bmm-tF-kc7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -18,50 +18,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="PersonsID" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GiE-6p-L7e" customClass="personsCollectionView" customModule="TheBreakingBad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="402"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OxS-wA-SY0">
-                                    <size key="itemSize" width="175" height="242"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OxS-wA-SY0">
+                                    <size key="itemSize" width="175" height="273"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="12" minY="10" maxX="12" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PersonsID" id="2zV-IM-iqT" customClass="PersonsCollectionViewCell" customModule="TheBreakingBad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="36" width="175" height="242"/>
+                                        <rect key="frame" x="12" y="10" width="175" height="273"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lr5-sr-CFR">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="242"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="273"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-M7-i44" customClass="CharacterImage" customModule="TheBreakingBad" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="198"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-M7-i44" customClass="CharacterImage" customModule="TheBreakingBad" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="204"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="175" id="3i7-2w-OOS"/>
-                                                        <constraint firstAttribute="width" secondItem="DgH-M7-i44" secondAttribute="height" multiplier="175:198" id="CeP-bU-472"/>
+                                                        <constraint firstAttribute="width" constant="175" id="7xI-m5-2X7"/>
+                                                        <constraint firstAttribute="width" secondItem="DgH-M7-i44" secondAttribute="height" multiplier="175:204" id="wox-FH-0qr"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlq-Yx-92e">
-                                                    <rect key="frame" x="8" y="206" width="159" height="36"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" highlighted="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlq-Yx-92e">
+                                                    <rect key="frame" x="0.0" y="214" width="175" height="28"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Name">
+                                                            <attributes>
+                                                                <font key="NSFont" size="22" name="SnellRoundhand"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="DgH-M7-i44" secondAttribute="trailing" id="1mV-xb-gvP"/>
+                                                <constraint firstAttribute="bottom" secondItem="zlq-Yx-92e" secondAttribute="bottom" constant="31" id="5Yr-ZL-fZR"/>
+                                                <constraint firstAttribute="trailing" secondItem="zlq-Yx-92e" secondAttribute="trailing" id="D18-j9-GlF"/>
                                                 <constraint firstItem="DgH-M7-i44" firstAttribute="leading" secondItem="Lr5-sr-CFR" secondAttribute="leading" id="Fjd-vk-l1f"/>
-                                                <constraint firstAttribute="trailing" secondItem="zlq-Yx-92e" secondAttribute="trailing" constant="8" id="J0l-CI-jyD"/>
+                                                <constraint firstAttribute="height" secondItem="DgH-M7-i44" secondAttribute="height" multiplier="1.33824" id="Iwc-dW-G8w"/>
                                                 <constraint firstItem="DgH-M7-i44" firstAttribute="leading" secondItem="Lr5-sr-CFR" secondAttribute="leading" id="Oy9-3S-NBg"/>
                                                 <constraint firstItem="DgH-M7-i44" firstAttribute="top" secondItem="Lr5-sr-CFR" secondAttribute="top" id="Tha-sr-Kzl"/>
+                                                <constraint firstItem="DgH-M7-i44" firstAttribute="centerX" secondItem="Lr5-sr-CFR" secondAttribute="centerX" id="Wef-vo-0c0"/>
+                                                <constraint firstAttribute="width" secondItem="DgH-M7-i44" secondAttribute="width" id="WwN-fs-RiX"/>
+                                                <constraint firstItem="DgH-M7-i44" firstAttribute="top" secondItem="Lr5-sr-CFR" secondAttribute="top" id="YCI-a0-A9q"/>
                                                 <constraint firstItem="DgH-M7-i44" firstAttribute="top" secondItem="Lr5-sr-CFR" secondAttribute="top" id="ZiD-Ug-D5e"/>
-                                                <constraint firstAttribute="bottom" secondItem="zlq-Yx-92e" secondAttribute="bottom" id="fEa-uk-wsR"/>
+                                                <constraint firstItem="zlq-Yx-92e" firstAttribute="leading" secondItem="Lr5-sr-CFR" secondAttribute="leading" id="aPd-AC-zdl"/>
+                                                <constraint firstItem="zlq-Yx-92e" firstAttribute="top" secondItem="DgH-M7-i44" secondAttribute="bottom" constant="10" id="fQd-1L-T94"/>
                                                 <constraint firstAttribute="trailing" secondItem="DgH-M7-i44" secondAttribute="trailing" id="iMw-SC-V4U"/>
-                                                <constraint firstItem="zlq-Yx-92e" firstAttribute="top" secondItem="DgH-M7-i44" secondAttribute="bottom" constant="8" id="sgH-bL-9Zo"/>
-                                                <constraint firstItem="zlq-Yx-92e" firstAttribute="leading" secondItem="Lr5-sr-CFR" secondAttribute="leading" constant="8" id="zHL-pK-UCe"/>
+                                                <constraint firstAttribute="width" secondItem="DgH-M7-i44" secondAttribute="height" multiplier="175:204" id="lRQ-L8-Beq"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="175" height="242"/>
+                                        <size key="customSize" width="175" height="273"/>
                                         <connections>
                                             <outlet property="personImage" destination="DgH-M7-i44" id="wGl-ep-bmj"/>
                                             <outlet property="personName" destination="zlq-Yx-92e" id="GOX-HK-tG0"/>
@@ -76,8 +87,8 @@
                             <constraint firstItem="GiE-6p-L7e" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3Zx-lA-k4S"/>
                             <constraint firstItem="GiE-6p-L7e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Acm-UR-OXg"/>
                             <constraint firstItem="GiE-6p-L7e" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="I5o-dB-ZXA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GiE-6p-L7e" secondAttribute="bottom" constant="460" id="oFf-cU-Uav"/>
                             <constraint firstItem="GiE-6p-L7e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pzB-ZM-98f"/>
+                            <constraint firstAttribute="bottom" secondItem="GiE-6p-L7e" secondAttribute="bottom" id="q1U-Fx-RHx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hHj-pH-KWZ"/>
@@ -87,29 +98,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="78.348214285714278"/>
+            <point key="canvasLocation" x="1855.072463768116" y="78.348214285714278"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Rty-B5-I4i">
+        <scene sceneID="QA3-Dq-JAi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MVX-qH-GhJ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bmm-tF-kc7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pc2-ew-imG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5gj-qj-Nkm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <navigationBarAppearance key="scrollEdgeAppearance">
-                            <textAttributes key="titleTextAttributes"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.7483230944" green="0.7483230944" blue="0.7483230944" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </navigationBarAppearance>
-                        <navigationBarAppearance key="compactScrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ouz-Dm-SRJ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Rp-TF-5Zc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="42w-3z-uy7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gsq-oh-qp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="78.348214285714278"/>
+            <point key="canvasLocation" x="944.92753623188412" y="78.348214285714278"/>
         </scene>
     </scenes>
     <resources>
