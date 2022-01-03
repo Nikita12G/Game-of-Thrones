@@ -14,5 +14,8 @@ class PersonsCollectionViewCell: UICollectionViewCell {
     
     static let reuseId = "PersonsID"
     
-   
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        personImage.image = nil
+    }
 }

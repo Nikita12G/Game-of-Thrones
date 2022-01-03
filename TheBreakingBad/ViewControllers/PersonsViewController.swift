@@ -9,7 +9,7 @@ import UIKit
 
 class PersonsViewController: UIViewController {
     
-
+    
     @IBOutlet weak var personsCollectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
     private var persons = [PersonElement]()
@@ -22,6 +22,7 @@ class PersonsViewController: UIViewController {
         refresh()
         title = "The Breaking Bad Сharacters"
     }
+    
     //    MARK: - Private func
     
     private func networkService() {
@@ -46,6 +47,9 @@ class PersonsViewController: UIViewController {
         personsCollectionView.reloadData()
     }
 }
+
+// MARK: - UICollectionView data source
+
 extension PersonsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         persons.count
@@ -60,16 +64,34 @@ extension PersonsViewController: UICollectionViewDataSource {
     
 }
 
+// MARK: - UICollectionView Delegate
+
 extension PersonsViewController: UICollectionViewDelegate {
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "hero" {
+            let indexPaths = self.personsCollectionView!.indexPathsForSelectedItems!
+            let indexPath = indexPaths[0] as NSIndexPath
+            guard let vc = segue.destination as? HeroesViewController else { return }
+            vc.urlImage = persons[indexPath.row].img
+            vc.status = persons[indexPath.row].status.rawValue
+            vc.name = persons[indexPath.row].name
+            vc.occupation = persons[indexPath.row].occupation.description
+            vc.nickName = persons[indexPath.row].nickname
+            vc.birthday = persons[indexPath.row].birthday.rawValue
+            
+        }
+    }
 }
 
-extension PersonsViewController: UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionView Delegate Flow Layout
 
+extension PersonsViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-       {
-          return CGSize(width: 100.0, height: 100.0)
-       }
+    {
+        return CGSize(width: 100.0, height: 100.0)
+    }
 }
 
 

@@ -76,6 +76,7 @@
                                         <connections>
                                             <outlet property="personImage" destination="DgH-M7-i44" id="wGl-ep-bmj"/>
                                             <outlet property="personName" destination="zlq-Yx-92e" id="GOX-HK-tG0"/>
+                                            <segue destination="uZw-mH-6dK" kind="show" identifier="hero" id="lET-a6-8gb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -100,6 +101,104 @@
             </objects>
             <point key="canvasLocation" x="1855.072463768116" y="78.348214285714278"/>
         </scene>
+        <!--Heroes View Controller-->
+        <scene sceneID="EBm-JA-Pia">
+            <objects>
+                <viewController id="uZw-mH-6dK" customClass="HeroesViewController" customModule="TheBreakingBad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6oS-6Y-p7E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="u3J-jl-M6g">
+                                <rect key="frame" x="87" y="104" width="240" height="378"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="raO-tA-r9X" customClass="CharacterImage" customModule="TheBreakingBad">
+                                        <rect key="frame" x="0.0" y="1.5" width="240" height="312.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="raO-tA-r9X" secondAttribute="height" multiplier="16:21" id="glH-Sf-FXe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-Fs-hhA">
+                                        <rect key="frame" x="0.0" y="357" width="240" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ag7-Bg-sgc">
+                                <rect key="frame" x="16" y="542" width="298" height="155"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAz-de-arP">
+                                        <rect key="frame" x="0.0" y="0.0" width="298" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mAz-de-arP" secondAttribute="height" multiplier="298:21" id="3hL-gP-ZMe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMf-jb-9uT">
+                                        <rect key="frame" x="0.0" y="45" width="298" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KMf-jb-9uT" secondAttribute="height" multiplier="298:21" id="9Zo-Pb-II7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-t9-BiO">
+                                        <rect key="frame" x="0.0" y="90" width="298" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSu-Ms-2Lc">
+                                        <rect key="frame" x="0.0" y="134.5" width="298" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uSu-Ms-2Lc" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="4Bu-RF-OTU"/>
+                                    <constraint firstItem="BYk-t9-BiO" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="NNW-kW-Tqi"/>
+                                    <constraint firstAttribute="trailing" secondItem="KMf-jb-9uT" secondAttribute="trailing" id="PyQ-Ts-Uan"/>
+                                    <constraint firstItem="KMf-jb-9uT" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="boH-pK-HIb"/>
+                                    <constraint firstItem="mAz-de-arP" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="jMH-GX-Quq"/>
+                                    <constraint firstAttribute="trailing" secondItem="BYk-t9-BiO" secondAttribute="trailing" id="llP-Qw-ZHk"/>
+                                    <constraint firstAttribute="trailing" secondItem="uSu-Ms-2Lc" secondAttribute="trailing" id="xBo-0v-5Uc"/>
+                                    <constraint firstAttribute="trailing" secondItem="mAz-de-arP" secondAttribute="trailing" id="xlc-Op-Cax"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lw4-Fo-fqg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ag7-Bg-sgc" firstAttribute="top" secondItem="u3J-jl-M6g" secondAttribute="bottom" constant="60" id="3VK-pU-ba0"/>
+                            <constraint firstItem="u3J-jl-M6g" firstAttribute="leading" secondItem="Lw4-Fo-fqg" secondAttribute="leading" constant="87" id="Jbe-It-6YE"/>
+                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="trailing" secondItem="u3J-jl-M6g" secondAttribute="trailing" constant="87" id="WFA-mB-gZP"/>
+                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="bottom" secondItem="u3J-jl-M6g" secondAttribute="bottom" constant="380" id="YUD-UP-Kxx"/>
+                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="trailing" secondItem="Ag7-Bg-sgc" secondAttribute="trailing" constant="100" id="ZFw-3R-rUs"/>
+                            <constraint firstItem="Ag7-Bg-sgc" firstAttribute="leading" secondItem="Lw4-Fo-fqg" secondAttribute="leading" constant="16" id="bHU-oW-XmY"/>
+                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="bottom" secondItem="Ag7-Bg-sgc" secondAttribute="bottom" constant="165" id="qVb-SG-7Ht"/>
+                            <constraint firstItem="u3J-jl-M6g" firstAttribute="top" secondItem="Lw4-Fo-fqg" secondAttribute="top" constant="16" id="tcF-T3-wXw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OLv-MW-34v"/>
+                    <connections>
+                        <outlet property="heroBirthday" destination="KMf-jb-9uT" id="70D-Ei-EW2"/>
+                        <outlet property="heroImage" destination="raO-tA-r9X" id="wPS-mH-pk6"/>
+                        <outlet property="heroName" destination="BeJ-Fs-hhA" id="2l6-nv-s51"/>
+                        <outlet property="heroNickName" destination="mAz-de-arP" id="Gax-Rk-bth"/>
+                        <outlet property="heroOccupation" destination="BYk-t9-BiO" id="OkH-xI-7eL"/>
+                        <outlet property="heroStatus" destination="uSu-Ms-2Lc" id="6tb-hQ-eAZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NFd-qI-FMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="78"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QA3-Dq-JAi">
             <objects>
@@ -122,10 +221,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsq-oh-qp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="78.348214285714278"/>
+            <point key="canvasLocation" x="1059" y="78"/>
         </scene>
     </scenes>
     <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
