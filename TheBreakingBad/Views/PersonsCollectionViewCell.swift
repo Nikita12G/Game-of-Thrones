@@ -13,7 +13,7 @@ class PersonsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var personName: UILabel!
     
     static let reuseId = "PersonsID"
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         personImage.image = nil

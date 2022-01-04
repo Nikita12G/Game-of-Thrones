@@ -14,13 +14,11 @@ class PersonsViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
-    
+    private let heroViewController = HeroesViewController()
     private var persons = [PersonElement]()
     private var searchPersons = [PersonElement]()
     
     private var searching = false
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +28,7 @@ class PersonsViewController: UIViewController {
         setupRefresh()
         setupSearchController()
         title = "The Breaking Bad"
+        personsCollectionView.backgroundColor = .lightGray
     }
     
     //    MARK: - Private func
@@ -50,16 +49,16 @@ class PersonsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     private func setupSearchController() {
-        searchController.loadViewIfNeeded()
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.enablesReturnKeyAutomatically = false
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        definesPresentationContext = true
         searchController.searchBar.placeholder = "Search person"
+        searchController.loadViewIfNeeded()
+        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     @objc func refreshData(sender: UIRefreshControl) {
@@ -84,14 +83,30 @@ extension PersonsViewController: UICollectionViewDataSource {
         
         if searching {
             cell.personImage.fetchImage(from: searchPersons[indexPath.row].img)
-            cell.personImage.layer.cornerRadius = 15
             cell.personName.text = searchPersons[indexPath.row].name
         } else {
             cell.personImage.fetchImage(from: persons[indexPath.row].img)
-            cell.personImage.layer.cornerRadius = 15
             cell.personName.text = persons[indexPath.row].name
         }
+        cell.layer.cornerRadius = 15
+        cell.personImage.layer.cornerRadius = 15
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = personsCollectionView.cellForItem(at: indexPath)
+        UIView.animate(
+            withDuration: 3,
+            delay: 0,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 1,
+            options: [],
+            animations: {
+                cell?.backgroundColor = .darkGray
+            },
+            completion: {_ in
+            })
+        
     }
     
 }
@@ -129,17 +144,16 @@ extension PersonsViewController: UICollectionViewDelegate {
 
 extension PersonsViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100.0, height: 100.0)
     }
 }
 
 // MARK: - UICollectionView Search Results Updating
 
-extension PersonsViewController: UISearchResultsUpdating {
+extension PersonsViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text!
+        let searchText = searchController.searchBar.text ?? ""
         if !searchText.isEmpty {
             searching = true
             searchPersons.removeAll()
@@ -163,8 +177,3 @@ extension PersonsViewController: UISearchResultsUpdating {
     
 }
 
-// MARK: - UICollectionView Search Bar Delegate
-
-extension PersonsViewController: UISearchBarDelegate {
-    
-}

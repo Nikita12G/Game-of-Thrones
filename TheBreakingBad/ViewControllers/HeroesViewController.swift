@@ -25,14 +25,15 @@ class HeroesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .clear
         
         heroImage.fetchImage(from: urlImage)
+        heroImage.layer.cornerRadius = 15
         heroName.text = name
         heroNickName.text = nickName
         heroBirthday.text = birthday
         heroOccupation.text = occupation
         heroStatus.text = status
-
     }
 
 }
