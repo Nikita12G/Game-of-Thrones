@@ -11,16 +11,25 @@ class PersonsViewController: UIViewController {
     
     
     @IBOutlet weak var personsCollectionView: UICollectionView!
+    
     private let refreshControl = UIRefreshControl()
+    private let searchController = UISearchController(searchResultsController: nil)
+    
     private var persons = [PersonElement]()
+    private var searchPersons = [PersonElement]()
+    
+    private var searching = false
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         personsCollectionView.delegate = self
         personsCollectionView.dataSource = self
         networkService()
-        refresh()
-        title = "The Breaking Bad Сharacters"
+        setupRefresh()
+        setupSearchController()
+        title = "The Breaking Bad"
     }
     
     //    MARK: - Private func
@@ -36,9 +45,21 @@ class PersonsViewController: UIViewController {
         }
     }
     
-    private func refresh() {
+    private func setupRefresh() {
         personsCollectionView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    private func setupSearchController() {
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        searchController.searchBar.placeholder = "Search person"
     }
     
     @objc func refreshData(sender: UIRefreshControl) {
@@ -52,13 +73,24 @@ class PersonsViewController: UIViewController {
 
 extension PersonsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        persons.count
+        if searching {
+            return searchPersons.count
+        } else {
+            return persons.count
+        }
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonsCollectionViewCell.reuseId, for: indexPath) as! PersonsCollectionViewCell
-        cell.personImage.fetchImage(from: persons[indexPath.row].img)
-        cell.personName.text = persons[indexPath.row].name
+        
+        if searching {
+            cell.personImage.fetchImage(from: searchPersons[indexPath.row].img)
+            cell.personImage.layer.cornerRadius = 15
+            cell.personName.text = searchPersons[indexPath.row].name
+        } else {
+            cell.personImage.fetchImage(from: persons[indexPath.row].img)
+            cell.personImage.layer.cornerRadius = 15
+            cell.personName.text = persons[indexPath.row].name
+        }
         return cell
     }
     
@@ -67,19 +99,28 @@ extension PersonsViewController: UICollectionViewDataSource {
 // MARK: - UICollectionView Delegate
 
 extension PersonsViewController: UICollectionViewDelegate {
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "hero" {
             let indexPaths = self.personsCollectionView!.indexPathsForSelectedItems!
             let indexPath = indexPaths[0] as NSIndexPath
             guard let vc = segue.destination as? HeroesViewController else { return }
-            vc.urlImage = persons[indexPath.row].img
-            vc.status = persons[indexPath.row].status.rawValue
-            vc.name = persons[indexPath.row].name
-            vc.occupation = persons[indexPath.row].occupation.description
-            vc.nickName = persons[indexPath.row].nickname
-            vc.birthday = persons[indexPath.row].birthday.rawValue
-            
+                        
+            if searching {
+                vc.urlImage = searchPersons[indexPath.row].img
+                vc.status = searchPersons[indexPath.row].status.rawValue
+                vc.name = searchPersons[indexPath.row].name
+                vc.occupation = searchPersons[indexPath.row].occupation.description
+                vc.nickName = searchPersons[indexPath.row].nickname
+                vc.birthday = searchPersons[indexPath.row].birthday.rawValue
+            } else {
+                vc.urlImage = persons[indexPath.row].img
+                vc.status = persons[indexPath.row].status.rawValue
+                vc.name = persons[indexPath.row].name
+                vc.occupation = persons[indexPath.row].occupation.description
+                vc.nickName = persons[indexPath.row].nickname
+                vc.birthday = persons[indexPath.row].birthday.rawValue
+            }
         }
     }
 }
@@ -94,4 +135,36 @@ extension PersonsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UICollectionView Search Results Updating
 
+extension PersonsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!
+        if !searchText.isEmpty {
+            searching = true
+            searchPersons.removeAll()
+            for person in persons {
+                if person.name.lowercased().contains(searchText.lowercased()) {
+                    searchPersons.append(person)
+                }
+            }
+        } else {
+            searching = false
+            searchPersons.removeAll()
+            searchPersons = persons
+        }
+        personsCollectionView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchPersons.removeAll()
+        personsCollectionView.reloadData()
+    }
+    
+}
+
+// MARK: - UICollectionView Search Bar Delegate
+
+extension PersonsViewController: UISearchBarDelegate {
+    
+}

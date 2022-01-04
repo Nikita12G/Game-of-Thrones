@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="PersonsID" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GiE-6p-L7e" customClass="personsCollectionView" customModule="TheBreakingBad" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="PersonsID" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiE-6p-L7e" customClass="personsCollectionView" customModule="TheBreakingBad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OxS-wA-SY0">
@@ -26,6 +26,21 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="12" minY="10" maxX="12" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <visualEffectView key="backgroundView" opaque="NO" clipsSubviews="YES" alpha="0.10000000000000001" contentMode="scaleAspectFill" id="uSc-OH-sGn">
+                                    <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e5t-YP-LVl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WalterWhite" translatesAutoresizingMaskIntoConstraints="NO" id="CDd-tn-Jj9">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                    </view>
+                                    <blurEffect style="light"/>
+                                </visualEffectView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PersonsID" id="2zV-IM-iqT" customClass="PersonsCollectionViewCell" customModule="TheBreakingBad" customModuleProvider="target">
                                         <rect key="frame" x="12" y="10" width="175" height="273"/>
@@ -34,7 +49,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="273"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-M7-i44" customClass="CharacterImage" customModule="TheBreakingBad" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DgH-M7-i44" customClass="CharacterImage" customModule="TheBreakingBad" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="175" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="175" id="7xI-m5-2X7"/>
@@ -46,7 +61,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Name">
                                                             <attributes>
-                                                                <font key="NSFont" size="22" name="SnellRoundhand"/>
+                                                                <font key="NSFont" size="22" name="AmericanTypewriter-CondensedBold"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -118,71 +133,90 @@
                                             <constraint firstAttribute="width" secondItem="raO-tA-r9X" secondAttribute="height" multiplier="16:21" id="glH-Sf-FXe"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-Fs-hhA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-Fs-hhA">
                                         <rect key="frame" x="0.0" y="357" width="240" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Name">
+                                                <attributes>
+                                                    <font key="NSFont" size="24" name="AmericanTypewriter-CondensedBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ag7-Bg-sgc">
-                                <rect key="frame" x="16" y="542" width="298" height="155"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aeU-5N-vj0">
+                                <rect key="frame" x="36" y="498" width="285" height="142"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAz-de-arP">
-                                        <rect key="frame" x="0.0" y="0.0" width="298" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMf-jb-9uT">
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="23.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="mAz-de-arP" secondAttribute="height" multiplier="298:21" id="3hL-gP-ZMe"/>
+                                            <constraint firstAttribute="width" secondItem="KMf-jb-9uT" secondAttribute="height" multiplier="97:8" id="s2w-j4-tba"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Birthday">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="AmericanTypewriter"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMf-jb-9uT">
-                                        <rect key="frame" x="0.0" y="45" width="298" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAz-de-arP">
+                                        <rect key="frame" x="0.0" y="39.5" width="285" height="23.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="KMf-jb-9uT" secondAttribute="height" multiplier="298:21" id="9Zo-Pb-II7"/>
+                                            <constraint firstAttribute="width" secondItem="mAz-de-arP" secondAttribute="height" multiplier="145:12" id="ATa-DI-ywG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Nickname">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="AmericanTypewriter"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-t9-BiO">
-                                        <rect key="frame" x="0.0" y="90" width="298" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSu-Ms-2Lc">
+                                        <rect key="frame" x="0.0" y="79" width="285" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="uSu-Ms-2Lc" secondAttribute="height" multiplier="145:12" id="NGy-I0-v8I"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Status">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="AmericanTypewriter"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSu-Ms-2Lc">
-                                        <rect key="frame" x="0.0" y="134.5" width="298" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="none" highlighted="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-t9-BiO">
+                                        <rect key="frame" x="0.0" y="118.5" width="285" height="23.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Occupation">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="AmericanTypewriter"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="uSu-Ms-2Lc" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="4Bu-RF-OTU"/>
-                                    <constraint firstItem="BYk-t9-BiO" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="NNW-kW-Tqi"/>
-                                    <constraint firstAttribute="trailing" secondItem="KMf-jb-9uT" secondAttribute="trailing" id="PyQ-Ts-Uan"/>
-                                    <constraint firstItem="KMf-jb-9uT" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="boH-pK-HIb"/>
-                                    <constraint firstItem="mAz-de-arP" firstAttribute="leading" secondItem="Ag7-Bg-sgc" secondAttribute="leading" id="jMH-GX-Quq"/>
-                                    <constraint firstAttribute="trailing" secondItem="BYk-t9-BiO" secondAttribute="trailing" id="llP-Qw-ZHk"/>
-                                    <constraint firstAttribute="trailing" secondItem="uSu-Ms-2Lc" secondAttribute="trailing" id="xBo-0v-5Uc"/>
-                                    <constraint firstAttribute="trailing" secondItem="mAz-de-arP" secondAttribute="trailing" id="xlc-Op-Cax"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lw4-Fo-fqg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ag7-Bg-sgc" firstAttribute="top" secondItem="u3J-jl-M6g" secondAttribute="bottom" constant="60" id="3VK-pU-ba0"/>
+                            <constraint firstItem="aeU-5N-vj0" firstAttribute="leading" secondItem="Lw4-Fo-fqg" secondAttribute="leading" constant="36" id="C30-0U-qT9"/>
+                            <constraint firstItem="aeU-5N-vj0" firstAttribute="top" secondItem="u3J-jl-M6g" secondAttribute="bottom" constant="16" id="F6B-Ew-fM5"/>
                             <constraint firstItem="u3J-jl-M6g" firstAttribute="leading" secondItem="Lw4-Fo-fqg" secondAttribute="leading" constant="87" id="Jbe-It-6YE"/>
                             <constraint firstItem="Lw4-Fo-fqg" firstAttribute="trailing" secondItem="u3J-jl-M6g" secondAttribute="trailing" constant="87" id="WFA-mB-gZP"/>
                             <constraint firstItem="Lw4-Fo-fqg" firstAttribute="bottom" secondItem="u3J-jl-M6g" secondAttribute="bottom" constant="380" id="YUD-UP-Kxx"/>
-                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="trailing" secondItem="Ag7-Bg-sgc" secondAttribute="trailing" constant="100" id="ZFw-3R-rUs"/>
-                            <constraint firstItem="Ag7-Bg-sgc" firstAttribute="leading" secondItem="Lw4-Fo-fqg" secondAttribute="leading" constant="16" id="bHU-oW-XmY"/>
-                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="bottom" secondItem="Ag7-Bg-sgc" secondAttribute="bottom" constant="165" id="qVb-SG-7Ht"/>
+                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="trailing" secondItem="aeU-5N-vj0" secondAttribute="trailing" constant="93" id="dHG-O1-bds"/>
                             <constraint firstItem="u3J-jl-M6g" firstAttribute="top" secondItem="Lw4-Fo-fqg" secondAttribute="top" constant="16" id="tcF-T3-wXw"/>
+                            <constraint firstItem="Lw4-Fo-fqg" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="aeU-5N-vj0" secondAttribute="bottom" constant="222" id="zUc-95-Ba4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OLv-MW-34v"/>
@@ -197,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFd-qI-FMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2665" y="78"/>
+            <point key="canvasLocation" x="2662.3188405797105" y="77.678571428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QA3-Dq-JAi">
@@ -225,6 +259,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="WalterWhite" width="630" height="1200"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

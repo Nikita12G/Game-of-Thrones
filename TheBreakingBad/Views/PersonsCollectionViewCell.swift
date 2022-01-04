@@ -17,5 +17,6 @@ class PersonsCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         personImage.image = nil
+        personName.text = nil
     }
 }
