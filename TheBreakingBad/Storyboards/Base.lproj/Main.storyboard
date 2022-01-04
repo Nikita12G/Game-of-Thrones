@@ -91,7 +91,10 @@
                                         <connections>
                                             <outlet property="personImage" destination="DgH-M7-i44" id="wGl-ep-bmj"/>
                                             <outlet property="personName" destination="zlq-Yx-92e" id="GOX-HK-tG0"/>
-                                            <segue destination="uZw-mH-6dK" kind="presentation" identifier="hero" id="lET-a6-8gb"/>
+                                            <segue destination="uZw-mH-6dK" kind="presentation" identifier="hero" modalPresentationStyle="formSheet" modalTransitionStyle="flipHorizontal" id="lET-a6-8gb">
+                                                <segue key="commit" inheritsFrom="parent" id="hwc-S3-7zT"/>
+                                                <segue key="preview" inheritsFrom="commit" id="WY3-7b-qqS"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -131,7 +134,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="regular"/>
+                                <blurEffect style="prominent"/>
                             </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="u3J-jl-M6g">
                                 <rect key="frame" x="87" y="16" width="240" height="412"/>
@@ -201,7 +204,7 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="none" highlighted="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-t9-BiO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-t9-BiO">
                                         <rect key="frame" x="0.0" y="118.5" width="285" height="23.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Occupation">
@@ -253,7 +256,7 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                         </textAttributes>
-                        <navigationBarAppearance key="compactScrollEdgeAppearance">
+                        <navigationBarAppearance key="compactScrollEdgeAppearance" backgroundEffect="regular">
                             <color key="backgroundColor" red="0.7483230944" green="0.7483230944" blue="0.7483230944" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </navigationBarAppearance>
                     </navigationBar>
@@ -267,6 +270,9 @@
             <point key="canvasLocation" x="1059" y="78"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lET-a6-8gb"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="WalterWhite" width="630" height="1200"/>
         <image name="person" catalog="system" width="128" height="117"/>

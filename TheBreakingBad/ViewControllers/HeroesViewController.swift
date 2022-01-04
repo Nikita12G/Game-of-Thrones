@@ -26,7 +26,6 @@ class HeroesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-        
         heroImage.fetchImage(from: urlImage)
         heroImage.layer.cornerRadius = 15
         heroName.text = name
@@ -35,5 +34,4 @@ class HeroesViewController: UIViewController {
         heroOccupation.text = occupation
         heroStatus.text = status
     }
-
 }

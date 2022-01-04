@@ -9,12 +9,11 @@ import UIKit
 
 class PersonsViewController: UIViewController {
     
-    
     @IBOutlet weak var personsCollectionView: UICollectionView!
     
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
-    private let heroViewController = HeroesViewController()
+    private let heroesVS = HeroesViewController()
     private var persons = [PersonElement]()
     private var searchPersons = [PersonElement]()
     
@@ -27,8 +26,8 @@ class PersonsViewController: UIViewController {
         networkService()
         setupRefresh()
         setupSearchController()
+        personsCollectionView.backgroundColor = .systemGray5
         title = "The Breaking Bad"
-        personsCollectionView.backgroundColor = .lightGray
     }
     
     //    MARK: - Private func
@@ -48,6 +47,7 @@ class PersonsViewController: UIViewController {
         personsCollectionView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
+    
     private func setupSearchController() {
         searchController.searchBar.enablesReturnKeyAutomatically = false
         searchController.obscuresBackgroundDuringPresentation = false
@@ -78,6 +78,7 @@ extension PersonsViewController: UICollectionViewDataSource {
             return persons.count
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonsCollectionViewCell.reuseId, for: indexPath) as! PersonsCollectionViewCell
         
@@ -88,6 +89,7 @@ extension PersonsViewController: UICollectionViewDataSource {
             cell.personImage.fetchImage(from: persons[indexPath.row].img)
             cell.personName.text = persons[indexPath.row].name
         }
+        
         cell.layer.cornerRadius = 15
         cell.personImage.layer.cornerRadius = 15
         return cell
@@ -103,12 +105,8 @@ extension PersonsViewController: UICollectionViewDataSource {
             options: [],
             animations: {
                 cell?.backgroundColor = .darkGray
-            },
-            completion: {_ in
             })
-        
     }
-    
 }
 
 // MARK: - UICollectionView Delegate
@@ -120,7 +118,7 @@ extension PersonsViewController: UICollectionViewDelegate {
             let indexPaths = self.personsCollectionView!.indexPathsForSelectedItems!
             let indexPath = indexPaths[0] as NSIndexPath
             guard let vc = segue.destination as? HeroesViewController else { return }
-                        
+            
             if searching {
                 vc.urlImage = searchPersons[indexPath.row].img
                 vc.status = searchPersons[indexPath.row].status.rawValue
@@ -169,6 +167,7 @@ extension PersonsViewController: UISearchResultsUpdating, UISearchBarDelegate {
         }
         personsCollectionView.reloadData()
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchPersons.removeAll()
