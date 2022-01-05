@@ -13,6 +13,7 @@ class PersonsViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
+    
     private let heroesVS = HeroesViewController()
     private var persons = [PersonElement]()
     private var searchPersons = [PersonElement]()
@@ -143,7 +144,7 @@ extension PersonsViewController: UICollectionViewDelegate {
 extension PersonsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100.0, height: 100.0)
+        return CGSize(width: 175.0, height: 273.0)
     }
 }
 
