@@ -28,6 +28,7 @@ class HeroesViewController: UIViewController {
         view.backgroundColor = .clear
         heroImage.fetchImage(from: urlImage)
         heroImage.layer.cornerRadius = 15
+        heroImage.image?.resize(175, 204)?.imageWithoutBaseline()
         heroName.text = name
         heroNickName.text = nickName
         heroBirthday.text = birthday
